@@ -2,8 +2,8 @@
 #include <stdlib.h>
 #include <time.h>
 #include "misFunciones.h"
-#define M = 5
-#define N = 12
+#define ANIOS 5
+#define MESES 12
 
 
 int main()
@@ -11,26 +11,40 @@ int main()
     
     srand(time(NULL)); 
 
-    int produccion[M][N];
+    int produccion[ANIOS][MESES], i, j;
 
     //a)
-    for(int i = 0; i < M; i++)
+    for(i = 0; i < ANIOS; i++)
     {
-        for (int j = 0; j < N; j++)
+        for (j = 0; j < MESES; j++)
         {
             produccion[i][j] = generarNumAleatorio(10000, 50000);
         }
     }
 
     //b)
-    for(int i = 0; i < M; i++)
+    printf("Matriz :\n");
+    for(i = 0; i < ANIOS; i++)
     {
-        for (int j = 0; j < N; j++)
+        for(j = 0; j < MESES; j++)
         {
             printf("%d ", produccion[i][j]);
         }
         printf("\n");
     }
+
+    //c)
+    float promedio = 0;
+
+    for(i = 0; i < ANIOS; i++)
+        {
+            for (j = 0; j < MESES; j++)
+            {
+                promedio += produccion[i][j];
+            }
+            promedio = (float)promedio/12; 
+            printf("Promedio de ventas del anio %d: %.2f\n", (i+1), promedio);
+        }
     
 
     return 0;
