@@ -19,6 +19,8 @@ int main()
         nombres[i] = (char*)malloc((strlen(buffer)+1)*sizeof(char));
         strcpy(nombres[i], buffer);
     }
+
+    free(buffer); //NO OLVIDAR LIBERAR LA MEMORIA
     
     for (int i = 0; i < 5; i++)
     {
@@ -26,6 +28,7 @@ int main()
         puts(nombres[i]);
     }
     
+    free(nombres); //NO OLVIDAR LIBERAR LA MEMORIA
 
     return 0;
 }
