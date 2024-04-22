@@ -82,6 +82,8 @@ int main()
         {
             printf("- Nombre: %s\n", clientes[i].NombreCliente[k]);
         }
+
+        free(clientes[i].NombreCliente);
         
         printf("- Cantidad de productos: %d\n", clientes[i].CantidadProductosAPedir);
         for (int j = 0; j < clientes[i].CantidadProductosAPedir; j++)
@@ -93,10 +95,13 @@ int main()
             printf("Total a pagar: %.2f\n", costoTotal(clientes[i].Productos[j].Cantidad, clientes[i].Productos[j].PrecioUnitario));
             suma += costoTotal(clientes[i].Productos[j].Cantidad, clientes[i].Productos[j].PrecioUnitario);
         }
+
+        free(clientes[i].Productos);
+
         printf("Total a pagar del Cliente %d: %d\n", clientes[i].ClienteID, suma);
     }
     
-    
+    free(clientes);
     
     return 0;
 }
